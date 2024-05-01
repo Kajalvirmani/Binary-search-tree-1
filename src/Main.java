@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+
+import Graphs.Graph;
 import  LinkedList.NodeLinkedList;
 import LinkedList.LinkedList;
 
@@ -9,6 +11,7 @@ public class Main {
         int[] arr= {2,5,1,4,7};
         binarySearcOperations(arr);
         linkedListOperations(arr);
+        graphOperations(arr);
 
     }
 
@@ -79,6 +82,36 @@ public class Main {
         }
     }
 
+    public static void graphOperations(int[] arr){
+        Graph g = new Graph();
+        for (int i = 0; i < arr.length; i++) {
+            g.addVertex(arr[i]);
+        }
+        g.addEdges(2,1);
+        g.addEdges(4,2);
+        g.addEdges(4,1);
+        g.addEdges(4,5);
+        g.addEdges(5,1);
+        g.addEdges(5,7);
+
+        g.getVertexCount();
+        g.getEdgeCount();
+       Boolean found= g.implementBFS(5, arr);
+       if(found){
+           System.out.println(" found ");
+       }
+       else{
+           System.out.println(" not found ");
+       }
+
+        Boolean foundDFS= g.implementDFS(5);
+        if(foundDFS){
+            System.out.println(" found ");
+        }
+        else{
+            System.out.println(" not found ");
+        }
+    }
 
 }
 
