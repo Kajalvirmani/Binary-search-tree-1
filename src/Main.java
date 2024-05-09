@@ -1,8 +1,10 @@
 import java.util.ArrayList;
+import java.util.Map;
 
 import Graphs.Graph;
 import  LinkedList.NodeLinkedList;
 import LinkedList.LinkedList;
+import Stack.StackOperations;
 
 public class Main {
 
@@ -12,7 +14,7 @@ public class Main {
         binarySearcOperations(arr);
         linkedListOperations(arr);
         graphOperations(arr);
-
+        stackOperations(arr);
     }
 
     public static void binarySearcOperations(int[] arr){
@@ -111,6 +113,14 @@ public class Main {
         else{
             System.out.println(" not found ");
         }
+    }
+
+    public static void stackOperations(int[] arr){
+        StackOperations s= new StackOperations();
+        Map<Integer,Integer> i= s.nextBiggerNumber(arr);
+        i.forEach((k,v)->
+                System.out.println(" key "+ k+" value "+ v ));
+
     }
 
 }
