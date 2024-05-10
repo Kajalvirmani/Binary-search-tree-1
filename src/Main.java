@@ -121,6 +121,10 @@ public class Main {
         i.forEach((k,v)->
                 System.out.println(" key "+ k+" value "+ v ));
 
+        ArrayList<Integer> countSmallerContiguousNumbers= s.findStockSmallerSpan(arr);
+        countSmallerContiguousNumbers.forEach(ele->
+                System.out.println("count of numbers smaller than current number in an array for this ele "+ ele ));
+
     }
 
 }
