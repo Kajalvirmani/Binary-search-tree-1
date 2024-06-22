@@ -56,21 +56,32 @@ public class StackOperations {
         }
         return result;
     }
+    public Map<Integer, Integer> findNextBiggerNumber(int[] arr) {
 
-    //    public Map<Integer, Integer> findNextBiggerNumber(int[] arr){
-//
-//        Map<Integer,Integer> map= new HashMap<>();
-//        Stack<Integer> s= new Stack();
-//        ArrayList<Integer> a= new ArrayList<>();
-//        for (int i = 0; i < arr.length ; i++) {
-//            if(s.empty()){
-//                return map;
-//            }
-//            while (!s.empty() && arr[s.peek()]< arr[i] ){
-//                a.add(s.pop(), arr[i]);
-//            }
-//
-//            s.push(i);
-//        }
-//    }
+        Map<Integer, Integer> map = new HashMap<>();
+        Stack<Integer> s = new Stack();
+        ArrayList<Integer> a = new ArrayList<>();
+        int[] b=new int[arr.length+1];
+        System.arraycopy(arr,0,b, 1, arr.length);
+        b[0]= Integer.MAX_VALUE;
+        s.push(0);
+        for (int i = 1; i < b.length; i++) {
+            if (i== b.length - 1) {
+                System.out.println("  hhh"+ s.peek()+ b[i]);
+               map.put(b[i],-1 );
+            }
+            if (s.empty()) {
+                return map;
+            }
+            while (!s.empty() && b[s.peek()] < b[i]) {
+
+                map.put(b[s.pop()],b[i]);
+
+            }
+            s.push(i);
+
+        }
+        return map;
+    }
 }
+

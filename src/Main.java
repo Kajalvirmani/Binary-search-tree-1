@@ -120,6 +120,9 @@ public class Main {
         Map<Integer,Integer> i= s.nextBiggerNumber(arr);
         i.forEach((k,v)->
                 System.out.println(" key "+ k+" value "+ v ));
+        Map<Integer,Integer> nextBiggerElement= s.findNextBiggerNumber(arr);
+        nextBiggerElement.forEach((k,v)->
+            System.out.println(" key "+ k+" value "+ v ));
 
         ArrayList<Integer> countSmallerContiguousNumbers= s.findStockSmallerSpan(arr);
         countSmallerContiguousNumbers.forEach(ele->
