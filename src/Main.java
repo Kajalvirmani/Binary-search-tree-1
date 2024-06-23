@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Map;
 
+import BackTracking.FindPathInGraph;
 import Graphs.Graph;
 import  LinkedList.NodeLinkedList;
 import LinkedList.LinkedList;
@@ -113,6 +114,29 @@ public class Main {
         else{
             System.out.println(" not found ");
         }
+        FindPathInGraph findPathInGraph = getFindPathInGraph(arr);
+        for (String s : findPathInGraph.result) {
+            System.out.println( s );
+        }
+
+    }
+
+    private static FindPathInGraph getFindPathInGraph(int[] arr) {
+        String[] nodes={"A","B","C","D","E"};
+        FindPathInGraph findPathInGraph= new FindPathInGraph();
+        for (int i = 0; i < arr.length; i++) {
+            findPathInGraph.addVertex(nodes[i]);
+        }
+        findPathInGraph.addEdges("A","C");
+        findPathInGraph.addEdges("A","E");
+        findPathInGraph.addEdges("A","B");
+        findPathInGraph.addEdges("C","D");
+        findPathInGraph.addEdges("D","B");
+        findPathInGraph.addEdges("D","A");
+        findPathInGraph.addEdges("D","E");
+        findPathInGraph.addEdges("E","B");
+        findPathInGraph.findPath("","A","B");
+        return findPathInGraph;
     }
 
     public static void stackOperations(int[] arr){
